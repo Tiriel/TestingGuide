@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Test Documentation</title>
+        <style>
+            body {
+                text-rendering: optimizeLegibility;
+                font-variant-ligatures: common-ligatures;
+                font-kerning: normal;
+                margin-left: 2em;
+            }
+
+            body > ul > li {
+                font-family: Source Serif Pro, PT Sans, Trebuchet MS, Helvetica, Arial;
+                font-size: 2em;
+            }
+
+            h2 {
+                font-family: Tahoma, Helvetica, Arial;
+                font-size: 3em;
+            }
+
+            ul {
+                list-style: none;
+                margin-bottom: 1em;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 id="AppBundle\Tests\Controller\AppControllerTest">AppBundle\Tests\Controller\AppController</h2>
+        <ul>
+            <li style="color: #555753;">✓ Index contains hello world</li>
+            <li style="color: #555753;">✓ Query responds with parameter</li>
+            <li style="color: #555753;">✓ List contains titles</li>
+            <li style="color: #555753;">✓ Color contains proper color</li>
+            <li style="color: #555753;">✓ Query throws when not called with letters</li>
+            <li style="color: #555753;">✓ Error 404 not found on random route</li>
+        </ul>
+        <h2 id="AppBundle\Tests\Repository\PostRepositoryTest">AppBundle\Tests\Repository\PostRepository</h2>
+        <ul>
+            <li style="color: #555753;">✓ Get all posts with authors</li>
+        </ul>
+        <h2 id="AppBundle\Tests\Services\GuzzleHelperTest">AppBundle\Tests\Services\GuzzleHelper</h2>
+        <ul>
+            <li style="color: #555753;">✓ Call</li>
+            <li style="color: #555753;">✓ Call throws with invalid method</li>
+            <li style="color: #555753;">✓ Call throws with invalid arguments</li>
+            <li style="color: #555753;">✓ Get class</li>
+        </ul>
+        <h2 id="AppBundle\Tests\Services\ReqresCallerTest">AppBundle\Tests\Services\ReqresCaller</h2>
+        <ul>
+            <li style="color: #555753;">✓ Call resource prepends slash if ommitted</li>
+            <li style="color: #555753;">✓ Call resource returns promise when called with async method name</li>
+            <li style="color: #555753;">✓ Call resource promise is rejected when problem with query</li>
+            <li style="color: #555753;">✓ Call resource promise is resolved when query found</li>
+            <li style="color: #555753;">✓ Call resource returns response when called with sync method</li>
+            <li style="color: #555753;">✓ Call resource throws when problem with query</li>
+            <li style="color: #555753;">✓ List resource returns response containing data array</li>
+            <li style="color: #555753;">✓ Get resource returns response containing data object</li>
+            <li style="color: #555753;">✓ Post resource returns response with status 201 if ok</li>
+            <li style="color: #555753;">✓ Put resource returns response with status 200 if ok</li>
+        </ul>
+        <h2 id="AppBundle\Tests\Services\ResponseFormatterTest">AppBundle\Tests\Services\ResponseFormatter</h2>
+        <ul>
+            <li style="color: #555753;">✓ Get color</li>
+            <li style="color: #555753;">✓ Format color</li>
+        </ul>
+    </body>
+</html>
