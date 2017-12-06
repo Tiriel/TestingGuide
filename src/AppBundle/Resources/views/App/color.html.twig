@@ -1,0 +1,28 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <section class="section content has-text-justified">
+        <h1 class="title is-1 has-text-primary">Color</h1>
+        <h2 class="subtitle is-30">Just because I can.</h2>
+        <div>
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-left">
+                        <div class="image is-48x48" style="background-color: {{ color.color }}"></div>
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-4">{{ color.name }}</p>
+                        <p class="subtitle is-6">{{ color.id }}</p>
+                    </div>
+                </div>
+
+                <div class="content">
+                    Color : {{ color.name }}<br />
+                    Hex value : {{ color.color }}<br />
+                    Pantone code: : {{ color.pantone_value }}<br />
+                    Year : {{ color.year }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

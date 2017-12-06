@@ -1,0 +1,9 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    app.services.guzzle_helper: '@AppBundle\Services\GuzzleHelper'
+    app.services.reqres_caller: '@AppBundle\Services\ReqresCaller'
+    app.services.response_formatter: '@AppBundle\Services\ResponseFormatter'

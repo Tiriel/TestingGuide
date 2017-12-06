@@ -1,0 +1,19 @@
+app_homepage:
+    path:     /
+    defaults: { _controller: AppBundle:App:index }
+
+app_querypage:
+    path:     /query/{name}
+    defaults: { _controller: AppBundle:App:query, name: foo }
+    requirements:
+        name: "[a-zA-Z]+"
+
+app_listposts:
+    path:     /list
+    defaults: { _controller: AppBundle:App:listPosts }
+
+app_getcolor:
+    path:     /color/{id}
+    defaults: { _controller: AppBundle:App:color, id: 1 }
+    requirements:
+        id: "[a-zA-Z0-9]+"
