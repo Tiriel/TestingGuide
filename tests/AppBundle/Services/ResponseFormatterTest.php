@@ -53,5 +53,6 @@ class ResponseFormatterTest extends WebTestCase
 
         // On peut maintenant tester que la méthode formatColor retourne bien les données attendues
         $this->assertEquals($datas, $formatter->formatColor(10));
+        $this->assertEquals($datas, $formatter->formatColor('mimosa'));
     }
 }
