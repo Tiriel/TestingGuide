@@ -22,11 +22,11 @@ class AppController extends Controller
     public function listPostsAction()
     {
         $list = $this
-            ->getDoctrine()
+            ->get('doctrine.orm.entities')
             ->getRepository('AppBundle:Post')
             ->getAllPostsWithAuthors();
 
-        return $this->render('AppBundle:App:list.html.twig', ['list' => $list]);
+        return $this->render('AppBundle:App:liste.html.twig', ['list' => $list]);
     }
 
     public function colorAction($id)

@@ -67,10 +67,8 @@ class ResponseFormatter
     public function formatColor($id)
     {
         $index = $id;
-        if ( ! is_int($id)) {
-            if ( ! ctype_digit($id)) {
-                $index = array_search($id, $this->colors) + 1;
-            }
+        if ( ! is_int($id) || ! ctype_digit($id)) {
+            $index = array_search($id, $this->colors) + 1;
         }
 
         if (false === $index) {

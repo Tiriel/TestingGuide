@@ -20,6 +20,6 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
             ->addSelect('a')
             ->getQuery();
 
-        return $query->getResult();
+        return $query->fetch();
     }
 }

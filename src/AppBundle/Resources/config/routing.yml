@@ -16,7 +16,7 @@ app_getcolor:
     path:     /color/{id}
     defaults: { _controller: AppBundle:App:color, id: 1 }
     requirements:
-        id: \w+
+        id: \W+
 
 app_form:
     path:     /form

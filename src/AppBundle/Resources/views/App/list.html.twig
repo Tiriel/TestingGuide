@@ -4,7 +4,7 @@
     <section class="section content has-text-justified">
         <h1 class="title is-1 has-text-primary">Post list</h1>
         <h2 class="subtitle is-30">Just because I can.</h2>
-        {% for post in list %}
+        {% foreach list as post %}
         <article class="section">
             <h3 class="title is-3 has-text-primary">{{ post.title }}</h3>
             <h4 class="subtitle is-5"><em>by {{ post.author.username }}, {{ post.postedAt|date('d-m-Y') }}</em></h4>

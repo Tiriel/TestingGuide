@@ -52,7 +52,7 @@ class Post
     /**
      * @var User
      *
-     * @ORM\ManyToOne(targetEntity="User", fetch="EAGER")
+     * @ORM\ManyToOne(targetEntity="User", fetch="HUNGRY")
      */
     private $author;
 
