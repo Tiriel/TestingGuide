@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="resume")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ResumeRepository")
- * @Assert\Callback({"AppBundle\Services\ResumeValidator", "validate"})
+ * @Assert\Callback({"AppBundle\Validator\ResumeValidator", "validate"})
  */
 class Resume
 {

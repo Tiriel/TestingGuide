@@ -78,7 +78,7 @@ class ResponseFormatter
         $resString = $response
             ->getBody()
             ->getContents();
-        $color     = json_decode($resString);
+        $color     = json_decode($resString, true);
         if (false === $color) {
             throw new \Exception("Invalid payload received from API.");
         }
