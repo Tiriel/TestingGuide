@@ -2,7 +2,7 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>Dashboard for /home/benjamin/Dev/php/TestingGuide/src/AppBundle/Controller</title>
+  <title>Dashboard for /home/benjamin/Dev/php/TestingGuide/src/AppBundle/Form</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../.css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="../.css/nv.d3.min.css" rel="stylesheet" type="text/css">
@@ -19,7 +19,7 @@
      <div class="col-md-12">
       <ol class="breadcrumb">
         <li><a href="../index.html">/home/benjamin/Dev/php/TestingGuide/src/AppBundle</a></li>
-        <li><a href="index.html">Controller</a></li>
+        <li><a href="index.html">Form</a></li>
         <li class="active">(Dashboard)</li>
 
       </ol>
@@ -59,7 +59,6 @@
         </tr>
        </thead>
        <tbody>
-       <tr><td><a href="AppController.php.html#10">AppBundle\Controller\AppController</a></td><td class="text-right">78%</td></tr>
 
        </tbody>
       </table>
@@ -76,7 +75,6 @@
         </tr>
        </thead>
        <tbody>
-       <tr><td><a href="AppController.php.html#10">AppBundle\Controller\AppController</a></td><td class="text-right">10</td></tr>
 
        </tbody>
       </table>
@@ -114,8 +112,6 @@
         </tr>
        </thead>
        <tbody>
-       <tr><td><a href="AppController.php.html#32"><abbr title="AppBundle\Controller\AppController::colorAction">colorAction</abbr></a></td><td class="text-right">50%</td></tr>
-       <tr><td><a href="AppController.php.html#46"><abbr title="AppBundle\Controller\AppController::resumeAction">resumeAction</abbr></a></td><td class="text-right">85%</td></tr>
 
        </tbody>
       </table>
@@ -132,8 +128,6 @@
         </tr>
        </thead>
        <tbody>
-       <tr><td><a href="AppController.php.html#46"><abbr title="AppBundle\Controller\AppController::resumeAction">resumeAction</abbr></a></td><td class="text-right">5</td></tr>
-       <tr><td><a href="AppController.php.html#32"><abbr title="AppBundle\Controller\AppController::colorAction">colorAction</abbr></a></td><td class="text-right">2</td></tr>
 
        </tbody>
       </table>
@@ -164,7 +158,7 @@ $(document).ready(function() {
       .yAxis.tickFormat(d3.format('d'));
 
     d3.select('#classCoverageDistribution svg')
-      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,1,0,0,0], "Class Coverage"))
+      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,0,1], "Class Coverage"))
       .transition().duration(500).call(chart);
 
     nv.utils.windowResize(chart.update);
@@ -182,7 +176,7 @@ $(document).ready(function() {
       .yAxis.tickFormat(d3.format('d'));
 
     d3.select('#methodCoverageDistribution svg')
-      .datum(getCoverageDistributionData([0,0,0,0,0,0,1,0,0,1,0,3], "Method Coverage"))
+      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,0,3], "Method Coverage"))
       .transition().duration(500).call(chart);
 
     nv.utils.windowResize(chart.update);
@@ -232,7 +226,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Cyclomatic Complexity');
 
     d3.select('#classComplexity svg')
-      .datum(getComplexityData([[78.94736842105263,10,"<a href=\"AppController.php.html#10\">AppBundle\\Controller\\AppController<\/a>"]], 'Class Complexity'))
+      .datum(getComplexityData([[100,3,"<a href=\"ResumeType.php.html#11\">AppBundle\\Form\\ResumeType<\/a>"]], 'Class Complexity'))
       .transition()
       .duration(500)
       .call(chart);
@@ -256,7 +250,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Method Complexity');
 
     d3.select('#methodComplexity svg')
-      .datum(getComplexityData([[100,1,"<a href=\"AppController.php.html#12\">AppBundle\\Controller\\AppController::indexAction<\/a>"],[100,1,"<a href=\"AppController.php.html#17\">AppBundle\\Controller\\AppController::queryAction<\/a>"],[100,1,"<a href=\"AppController.php.html#22\">AppBundle\\Controller\\AppController::listPostsAction<\/a>"],[50,2,"<a href=\"AppController.php.html#32\">AppBundle\\Controller\\AppController::colorAction<\/a>"],[85.71428571428571,5,"<a href=\"AppController.php.html#46\">AppBundle\\Controller\\AppController::resumeAction<\/a>"]], 'Method Complexity'))
+      .datum(getComplexityData([[100,1,"<a href=\"ResumeType.php.html#16\">AppBundle\\Form\\ResumeType::buildForm<\/a>"],[100,1,"<a href=\"ResumeType.php.html#45\">AppBundle\\Form\\ResumeType::configureOptions<\/a>"],[100,1,"<a href=\"ResumeType.php.html#57\">AppBundle\\Form\\ResumeType::getBlockPrefix<\/a>"]], 'Method Complexity'))
       .transition()
       .duration(500)
       .call(chart);
