@@ -7,6 +7,7 @@
  */
 namespace AppBundle\DataFixtures\ORM;
 
+use AppBundle\Entity\Position;
 use AppBundle\Entity\Post;
 use AppBundle\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -83,6 +84,7 @@ class Fixtures extends Fixture
                 ->setPrivate(false);
             $manager->persist($post);
         }
+
         $manager->flush();
     }
 }

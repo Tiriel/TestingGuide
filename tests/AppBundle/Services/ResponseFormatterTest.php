@@ -47,12 +47,35 @@ class ResponseFormatterTest extends WebTestCase
                           ->setMethods(['getColor'])
                           ->getMock();
         // On mock enfin la méthode getColor pour contrôler ses arguments et son retour
-        $formatter->method('getColor')
+        $formatter->expects($this->once())
+                  ->method('getColor')
                   ->with($this->equalTo(10))
                   ->willReturn($get);
 
         // On peut maintenant tester que la méthode formatColor retourne bien les données attendues
         $this->assertEquals($datas, $formatter->formatColor(10));
+    }
+
+    public function testFormatColorWithString()
+    {
+        $datas                = new \stdClass();
+        $datas->id            = 10;
+        $datas->name          = 'mimosa';
+        $datas->year          = 2009;
+        $datas->color         = '#F0C05A';
+        $datas->pantone_value = '14-0848';
+
+        $streamed = json_encode(['data' => $datas]);
+        $get      = new Response(200, [], new Stream(fopen("data://text/plain,{$streamed}", 'r')));
+        $formatter = $this->getMockBuilder(ResponseFormatter::class)
+                          ->disableOriginalConstructor()
+                          ->setMethods(['getColor'])
+                          ->getMock();
+        $formatter->expects($this->once())
+                  ->method('getColor')
+                  ->with($this->equalTo(10))
+                  ->willReturn($get);
+
         $this->assertEquals($datas, $formatter->formatColor('mimosa'));
     }
 }

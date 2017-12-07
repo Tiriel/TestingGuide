@@ -187,4 +187,3 @@ class Post
         return $this;
     }
 }
-

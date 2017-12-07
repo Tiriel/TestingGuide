@@ -1,0 +1,9 @@
+{% extends '::base.html.twig' %}
+
+{% block menu %}
+    <a class="navbar-item" href="{{ path('app_homepage') }}">Index</a>
+    <a class="navbar-item" href="{{ path('app_querypage') }}">Query</a>
+    <a class="navbar-item" href="{{ path('app_listposts') }}">List</a>
+    <a class="navbar-item" href="{{ path('app_getcolor') }}">Color</a>
+    <a class="navbar-item" href="{{ path('app_form') }}">Form</a>
+{% endblock %}

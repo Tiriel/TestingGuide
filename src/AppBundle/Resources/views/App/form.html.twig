@@ -1,0 +1,113 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% form_theme form _self %}
+
+{% block form_errors %}
+    {% if errors|length > 0 %}
+        <ul style="list-style: none;">
+            {% for error in errors %}
+                <li>{{ error.message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock form_errors %}
+
+{% block body %}
+    <section class="section content has-text-justified">
+        <h1 class="title is-1 has-text-primary">Form</h1>
+        <h2 class="subtitle is-30">Just fill it.</h2>
+        <div>
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            <div class="field is-horizontal">
+                <div class="field-label">
+                    <label class="label">{{ form_label(form.firstname) }}</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            {{ form_widget(form.firstname, {'attr': {'class': 'input'}}) }}
+                        </div>
+                        <div class="has-text-danger">{{ form_errors(form.firstname) }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label">
+                    <label class="label">{{ form_label(form.lastname) }}</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            {{ form_widget(form.lastname, {'attr': {'class': 'input'}}) }}
+                        </div>
+                        <div class="has-text-danger">{{ form_errors(form.lastname) }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label">
+                    <label class="label">{{ form_label(form.age) }}</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            {{ form_widget(form.age, {'attr': {'class': 'input'}}) }}
+                        </div>
+                        <div class="has-text-danger">{{ form_errors(form.age) }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label">
+                    <label class="label">Know Symfony</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            {{ form_widget(form.symfony, {'attr': {'class': 'checkbox'}}) }}
+                        </div>
+                        <div class="has-text-danger">{{ form_errors(form.symfony) }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label">
+                    <label class="label">{{ form_label(form.position) }}</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            {{ form_widget(form.position, {'attr': {'class': 'select'}}) }}
+                        </div>
+                        <div class="has-text-danger">{{ form_errors(form.position) }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label">
+                    <label class="label">{{ form_label(form.comment) }}</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            {{ form_widget(form.comment, {'attr': {'class': 'textarea'}}) }}
+                        </div>
+                        <div class="has-text-danger">{{ form_errors(form.comment) }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label"></div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            {{ form_widget(form.test, {'attr': {'class': 'button is-primary'}}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </section>
+{% endblock %}

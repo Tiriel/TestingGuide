@@ -9,6 +9,21 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+    <nav class="navbar is-link">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="{{ path('app_homepage') }}">OmniTest</a>
+            <button class="button navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                {% block menu %}{% endblock %}
+            </div>
+        </div>
+    </nav>
     <section class="hero is-fixed-top is-primary">
         <div class="hero-body">
             <div class="container">
@@ -17,6 +32,14 @@
             </div>
         </div>
     </section>
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="notification is-{{ label }}">
+                <button class="delete"></button>
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
     <section class="columns">
         <section class="column is-three-fifths is-offset-one-fifth">
             {% block body %}{% endblock %}

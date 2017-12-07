@@ -25,6 +25,14 @@ class AppControllerTest extends WebTestCase
         $this->assertContains('Hello Quux', $client->getResponse()->getContent());
     }
 
+    public function testQueryThrowsWhenNotCalledWithLetters()
+    {
+        $client = static::createClient();
+        $client->request('GET', '/query/1234');
+
+        $this->assertContains('ResourceNotFoundException', $client->getResponse()->getContent());
+    }
+
     public function testListContainsTitles()
     {
         $client = static::createClient();
@@ -35,6 +43,7 @@ class AppControllerTest extends WebTestCase
             $client->getResponse()->getContent()
         );
     }
+
     public function testColorContainsProperColor()
     {
         $client = static::createClient();
@@ -46,12 +55,41 @@ class AppControllerTest extends WebTestCase
         );
     }
 
-    public function testQueryThrowsWhenNotCalledWithLetters()
+    public function testFormIsDisplayed()
     {
         $client = static::createClient();
-        $client->request('GET', '/query/1234');
+        $client->request('GET', '/form');
 
-        $this->assertContains('ResourceNotFoundException', $client->getResponse()->getContent());
+        $this->assertContains(
+            'Just fill it.',
+            $client->getResponse()->getContent()
+        );
+        $this->assertContains(
+            '>Send</button>',
+            $client->getResponse()->getContent()
+        );
+    }
+
+    public function testFormReturnsErrorWithBadData()
+    {
+        $formDatas = [
+            'appbundle_resume' =>[
+                'firstname' => 'John',
+                'lastname'  => 'Doe',
+                'age'       => 30,
+                'symfony'   => false,
+                'position'  => 'Symfony Developer',
+                'comment'   => '',
+                'test'      => '',
+            ]
+        ];
+        $client = static::createClient();
+        $client->request('POST', '/form', $formDatas);
+
+        $this->assertContains(
+            'Oh noes!',
+            $client->getResponse()->getContent()
+        );
     }
 
     public function testError404NotFoundOnRandomRoute()

@@ -2,7 +2,10 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Resume;
+use AppBundle\Form\ResumeType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class AppController extends Controller
 {
@@ -38,5 +41,18 @@ class AppController extends Controller
         }
 
         return $this->render('AppBundle:App:color.html.twig', ['color' => $color]);
+    }
+
+    public function resumeAction(Request $request)
+    {
+        $form = $this->createForm(ResumeType::class, new Resume());
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->addFlash('success', 'Yay! Congratulations, form is working!');
+        } elseif ($form->isSubmitted() && ! $form->isValid()) {
+            $this->addFlash('danger', 'Oh noes! Your form isn\'t working...');
+        }
+
+        return $this->render('@App/App/form.html.twig', ['form' => $form->createView()]);
     }
 }

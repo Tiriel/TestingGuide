@@ -17,3 +17,7 @@ app_getcolor:
     defaults: { _controller: AppBundle:App:color, id: 1 }
     requirements:
         id: \w+
+
+app_form:
+    path:     /form
+    defaults: { _controller: AppBundle:App:resume }
