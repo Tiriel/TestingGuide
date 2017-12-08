@@ -8,16 +8,16 @@
 
 use AppBundle\Entity\Resume;
 use AppBundle\Form\ResumeType;
-use AppBundle\Services\ResumeValidator;
 use Symfony\Component\Form\Test\TypeTestCase;
 use Symfony\Component\Validator\Validation;
-use Symfony\Component\Validator\Constraints\Callback;
 
 class ResumeTypeTest extends TypeTestCase
 {
     public function testSubmitWithSymfonyAndPositionValid()
     {
-        $validator = Validation::createValidator();
+        $validator = Validation::createValidatorBuilder()
+                               ->enableAnnotationMapping()
+                               ->getValidator();
         $formDatas = [
             'firstname' => 'John',
             'lastname'  => 'Doe',
@@ -31,20 +31,15 @@ class ResumeTypeTest extends TypeTestCase
 
         $form->submit($formDatas);
         $this->assertEquals($resume, $form->getData());
-        $errors = $validator->validate(
-            $resume,
-            new Callback(
-                function ($object, $context, $payload) {
-                    ResumeValidator::validate($object, $context, $payload);
-                }
-            )
-        );
+        $errors = $validator->validate($resume);
         $this->assertEquals(0, count($errors));
     }
 
     public function testSubmitWithPositionWithoutSymfony()
     {
-        $validator = Validation::createValidator();
+        $validator = Validation::createValidatorBuilder()
+                               ->enableAnnotationMapping()
+                               ->getValidator();
         $formDatas = [
             'firstname' => 'John',
             'lastname'  => 'Doe',
@@ -58,14 +53,30 @@ class ResumeTypeTest extends TypeTestCase
 
         $form->submit($formDatas);
         $this->assertEquals($resume, $form->getData());
-        $errors = $validator->validate(
-            $resume,
-            new Callback(
-                function ($object, $context, $payload) {
-                    ResumeValidator::validate($object, $context, $payload);
-                }
-            )
-        );
+        $errors = $validator->validate($resume);
         $this->assertNotEquals(0, count($errors));
+    }
+
+    public function testFormReturnsErrorWithBadData()
+    {
+        $validator = Validation::createValidatorBuilder()
+                               ->enableAnnotationMapping()
+                               ->getValidator();
+        $formDatas = [
+            'firstname' => '',
+            'lastname'  => '',
+            'age'       => 30,
+            'symfony'   => false,
+            'position'  => 'Symfony Developer',
+            'comment'   => '',
+            'test'      => '',
+        ];
+        $resume    = Resume::fromArray($formDatas);
+        $form      = $this->factory->create(ResumeType::class);
+
+        $form->submit($formDatas);
+        $this->assertEquals($resume, $form->getData());
+        $errors = $validator->validate($resume);
+        $this->assertEquals(3, count($errors));
     }
 }

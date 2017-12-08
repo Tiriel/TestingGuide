@@ -8,8 +8,6 @@
 
 namespace AppBundle\Services;
 
-use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**

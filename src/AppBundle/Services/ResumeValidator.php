@@ -8,7 +8,6 @@
 
 namespace AppBundle\Services;
 
-
 use AppBundle\Entity\Resume;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
 

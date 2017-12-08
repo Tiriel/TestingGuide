@@ -73,7 +73,7 @@ class AppControllerTest extends WebTestCase
     public function testFormReturnsErrorWithBadData()
     {
         $formDatas = [
-            'appbundle_resume' =>[
+            'appbundle_resume' => [
                 'firstname' => 'John',
                 'lastname'  => 'Doe',
                 'age'       => 30,

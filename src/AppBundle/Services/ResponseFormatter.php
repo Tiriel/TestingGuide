@@ -8,7 +8,6 @@
 
 namespace AppBundle\Services;
 
-
 /**
  * Class ResponseFormatter
  * @package AppBundle\Services

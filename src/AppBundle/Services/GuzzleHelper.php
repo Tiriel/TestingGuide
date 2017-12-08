@@ -9,7 +9,6 @@
 namespace AppBundle\Services;
 
 use GuzzleHttp\Client;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class GuzzleHelper
